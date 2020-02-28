@@ -1,12 +1,11 @@
-export abstract class ApiService<T> {
-  protected baseUrl: string;
+import { Injectable } from "@vue-ioc/core";
 
-  constructor(baseUrl?: string) {
-    if (baseUrl != undefined) {
-      this.baseUrl = baseUrl;
-    } else {
-      this.baseUrl = process.env.VUE_APP_API_URI;
-    }
+@Injectable()
+export abstract class ApiRepository<T> {
+  protected readonly baseUrl: string;
+
+  constructor() {
+    this.baseUrl = process.env.VUE_APP_API_URI;
   }
 
   abstract getAll(): Promise<T[]>;
