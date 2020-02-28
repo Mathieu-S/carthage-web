@@ -1,10 +1,12 @@
 import axios from "axios";
+import { Injectable } from "@vue-ioc/core";
 import { User } from "@/libs/models/User";
-import { ApiService } from "./ApiRepository";
+import { ApiRepository } from "./ApiRepository";
 
-export class UserRepository extends ApiService<User> {
-  constructor(baseUrl?: string) {
-    super(baseUrl);
+@Injectable()
+export class UserRepository extends ApiRepository<User> {
+  constructor() {
+    super();
   }
 
   public async getAll(): Promise<User[]> {
