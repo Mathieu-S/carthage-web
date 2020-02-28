@@ -10,6 +10,17 @@
   </main>
 </template>
 
+<script lang="ts">
+import { Vue } from "vue-property-decorator";
+import { Module } from "@vue-ioc/core";
+import { UserRepository } from "@/libs/repositories/UserRepository";
+
+@Module({
+  providers: [UserRepository]
+})
+export default class App extends Vue {}
+</script>
+
 <style lang="scss">
 @import "@/assets/scss/main.scss";
 
