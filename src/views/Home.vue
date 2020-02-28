@@ -12,6 +12,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { State, Action } from "vuex-class";
+import { Inject } from "@vue-ioc/core";
 import Notifier from "@/components/Notifier.vue";
 import TabUser from "@/components/TabUser.vue";
 import { StateResponse, ActionEmitter } from "@/libs/helpers/StateTypeHelper";
@@ -28,11 +29,11 @@ export default class Home extends Vue {
   @State("users") readonly users!: StateResponse<User[]>;
   @Action("registerUsers") readonly registerUsers!: ActionEmitter;
   @Action("deleteUser") readonly deleteUser!: ActionEmitter;
+  @Inject() readonly userRepository!: UserRepository;
 
   async mounted(): Promise<void> {
     if (this.users.length === 0) {
-      const userRepository = new UserRepository();
-      this.registerUsers(await userRepository.getAll());
+      this.registerUsers(await this.userRepository.getAll());
     }
   }
 
