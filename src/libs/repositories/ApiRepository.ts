@@ -1,7 +1,7 @@
 export abstract class ApiRepository<T> {
   protected baseUrl: string;
 
-  constructor(baseUrl?: string) {
+  protected constructor(baseUrl?: string) {
     if (baseUrl != undefined) {
       this.baseUrl = baseUrl;
     } else {

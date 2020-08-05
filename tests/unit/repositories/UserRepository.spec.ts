@@ -6,7 +6,7 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("UserRepository.ts", () => {
   it("get all users", async () => {
-    // Arange
+    // Arrange
     const users = [
       { id: 1, name: "Bob" },
       { id: 2, name: "Marley" }
@@ -24,7 +24,7 @@ describe("UserRepository.ts", () => {
   });
 
   it("get one user", async () => {
-    // Arange
+    // Arrange
     const user = { id: 1, name: "Bob" };
     const resp = { data: user };
     mockedAxios.get.mockResolvedValue(resp);

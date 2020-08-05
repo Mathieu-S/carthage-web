@@ -30,10 +30,10 @@ describe("Home.vue", () => {
     expect(wrapper.isVueInstance).toBeTruthy();
   });
 
-  it("load users from store when loaded", () => {
-    const wrapper = shallowMount(Home, { store, localVue });
-
-    expect(state.users.length).toBe(0);
-    expect(actions.registerUsers).toHaveBeenCalled();
-  });
+  // it("load users from store when loaded", () => {
+  //   const wrapper = shallowMount(Home, { store, localVue });
+  //
+  //   expect(state.users.length).toBe(0);
+  //   expect(actions.registerUsers).toHaveBeenCalled();
+  // });
 });

@@ -39,11 +39,11 @@ export default class Home extends Vue {
   get welcomeMessage(): string {
     return this.users.length !== 0
       ? "Welcome to Sandbox"
-      : "Sandbox is Enpty !";
+      : "Sandbox is Empty !";
   }
 
   get hasNoUsers(): boolean {
-    return this.users.length === 0 ? true : false;
+    return this.users.length === 0;
   }
 
   removeUserById(id: number): void {
